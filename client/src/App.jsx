@@ -8,7 +8,7 @@ export const App = () => {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
-          <main className="container mx-auto px-1">
+          <main className="container mx-auto px-3">
           <Navbar />
           <Routes>
             {/* Public */}
