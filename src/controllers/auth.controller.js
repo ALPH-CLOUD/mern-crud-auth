@@ -5,11 +5,21 @@ import jwt from 'jsonwebtoken';
 import { TOKEN_SECRET } from '../config.js';
 
 export const register = async (req, res) => { 
-    const {email, password, username} = req.body;
+    const { email, password, username } = req.body;
 
-    const userFound = await User.findOne({email})
-    if (userFound) return res.status(400).json({message: 'The email is already in use'});
+    const userFound = await User.findOne({ email });
 
+    if (userFound) {
+        return res.status(400).json({ message: "The email is already in use" });
+    }
+
+    const usernameFound = await User.findOne({ username });
+
+    if (usernameFound) {
+        return res.status(400).json({ message: "The username is already in use" });
+    }
+
+    
     try {
         const passwordHash = await bcrypt.hash(password, 10)
 
@@ -32,7 +42,7 @@ export const register = async (req, res) => {
         })
 
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({message: "Internal server error"})
     }
 }
 

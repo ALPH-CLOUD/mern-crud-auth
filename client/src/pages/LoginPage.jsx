@@ -18,14 +18,14 @@ export const LoginPage = () => {
     },[isAuthenticated])
 
     return (
-        <div className="flex h-[calc(100vh-100px)] items-center justify-center">
+        <div className="flex   justify-center">
             <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
                 {LoginErrors.map((error, i) => (
                     <div key={i} className="bg-red-500 p-2 mb-2 text-white text-center">
                         {error}
                     </div>
                 ))}
-                <h1 className="text-2xl font-bold">Login</h1>
+                <h1 className="text-2xl font-bold mb-4">Login</h1>
 
                 <form onSubmit={onSubmit}>
 

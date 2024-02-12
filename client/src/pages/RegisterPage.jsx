@@ -15,12 +15,15 @@ export const RegisterPage = () => {
     }, [isAuthenticated]);
 
     const onSubmit = handleSubmit(async (values) => {
+        values.username = values.username.toLowerCase();
+        values.email = values.email.toLowerCase();
         signup(values);
     });
 
     return (
-        <div className='flex h-screen items-center justify-center'>
-            <div className='bg-zinc-800 max-w-md w-full p-10 rounded-md'>
+        <div className="flex   justify-center">
+            <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+
                 {RegisterErrors.map((error, i) => (
                     <div key={i} className='bg-red-500 p-2 mb-2 text-white text-center'>
                         {error}

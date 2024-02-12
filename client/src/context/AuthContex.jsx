@@ -25,7 +25,12 @@ export const AuthProvider = ({ children }) => {
             setUser(res.data);
             setIsAuthenticated(true);
         } catch (error) {
-            setErrors(error.response.data);
+
+            if(Array.isArray(error.response.data)){
+                return setErrors(error.response.data)
+            }
+
+            setErrors([error.response.data.message]);
         }
     }
 
@@ -35,6 +40,7 @@ export const AuthProvider = ({ children }) => {
             setIsAuthenticated(true);
             setUser(res.data);
         } catch (error) {
+            
             if(Array.isArray(error.response.data)){
                 return setErrors(error.response.data)
             }
@@ -85,6 +91,7 @@ export const AuthProvider = ({ children }) => {
                     setUser(res.data);
                     setLoading(false);
                 } catch (error) {
+
                     setIsAuthenticated(false);
                     setLoading(false);
                     setUser(null);

@@ -7,7 +7,9 @@ export const Navbar = () => {
 
     return (
 <nav className="bg-zinc-700 my-3 flex flex-col sm:flex-row justify-between py-5 px-10 text-white">
-<Link to='/' className="mb-4 sm:mb-0 text-center sm:text-left">
+<Link to={
+    isAuthenticated ? "/tasks" : "/"
+} className="mb-4 sm:mb-0 text-center sm:text-left">
     <h1 className='text-2xl font-bold'>Tasks Manager</h1>
 </Link>
             <ul className="flex flex-col sm:flex-row gap-y-2 sm:gap-x-2 items-center">
