@@ -8,21 +8,22 @@ export const App = () => {
     <AuthProvider>
       <TaskProvider>
         <BrowserRouter>
+          <main className="container mx-auto px-1">
           <Navbar />
           <Routes>
             {/* Public */}
             <Route path='/' element={<HomePage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/register' element={<RegisterPage />} />
-
+            {/* private */}
             <Route element={<ProtectedRoute />}>
               <Route path='/tasks' element={<TasksPage />} />
               <Route path='/add-task' element={<TaskFormPage />} />
               <Route path='/tasks/:id' element={<TaskFormPage />} />
               <Route path='/profile' element={<ProfilePage />} />
             </Route>
-
           </Routes>
+          </main>
         </BrowserRouter>
       </TaskProvider>
     </AuthProvider>
