@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+// creación del esquema de tarea para la base de datos	
 const taskSchema = new mongoose.Schema({
     title:{
         type: String,

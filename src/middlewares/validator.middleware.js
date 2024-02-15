@@ -1,3 +1,4 @@
+// función para ejecutar la validación de un esquema
 export const validateSchema = (schema) => (req, res, next) => {
     try {
         schema.parse(req.body)

@@ -1,5 +1,6 @@
 import {z} from 'zod';
 
+// Validación de esquema para registra y loguear usuarios
 export const registerSchema = z.object({
     username: z.string({
         required_error: 'Username is required',
@@ -23,7 +24,4 @@ export const loginSchema = z.object({
     password: z.string({
         required_error: "Password is required",
     })
-    // .min(6, {
-    //     message: "Password must be at least 6 characters long"
-    // })
 })
